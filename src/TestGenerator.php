@@ -309,20 +309,13 @@ class TestGenerator extends AbstractGenerator
                 DIRECTORY_SEPARATOR
             )
         );
-
-        if ($this->outClassName['namespace'] != '') {
-            $namespace = "\nnamespace " .
-                $this->outClassName['namespace'] . ";\n";
-        } else {
-            $namespace = '';
-        }
-
+        $namespace = $this->outClassName['namespace'];
         $classTemplate->setVar(
             array(
                 'namespace'          => $namespace,
                 'namespaceSeparator' => !empty($namespace) ? '\\' : '',
                 'className'          => $this->inClassName['className'],
-                'testClassName'      => $this->outClassName['className'],
+                'testClassName'      => $this->inClassName['fullyQualifiedClassName'],
                 'methods'            => $methods . $incompleteMethods,
                 'date'               => date('Y-m-d'),
                 'time'               => date('H:i:s')

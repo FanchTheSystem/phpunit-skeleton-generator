@@ -76,11 +76,13 @@ class GenerateTestCommand extends BaseCommand
                  InputArgument::OPTIONAL,
                  'The source file that declared the class to generate a test class for'
              )
+            /*
              ->addArgument(
                  'test-class',
                  InputArgument::OPTIONAL,
                  'The name of the test class that is to be generated'
              )
+            */
              ->addArgument(
                  'test-source',
                  InputArgument::OPTIONAL,
@@ -99,7 +101,7 @@ class GenerateTestCommand extends BaseCommand
         return new TestGenerator(
             (string)$input->getArgument('class'),
             (string)$input->getArgument('class-source'),
-            (string)$input->getArgument('test-class'),
+            (string)$input->getArgument('class'),
             (string)$input->getArgument('test-source')
         );
     }
